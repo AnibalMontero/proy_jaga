@@ -21,6 +21,13 @@ function pedir(){
         var padre = ul1.parentNode;
         padre.removeChild(ul1);
 
+  
+      
+      //  comanda_ul= document.createElement("ul");
+       // comanda_ul.setAttribute("class", "lista_comanda");
+        //padre.appendChild(comanda_ul)
+        
+
    
 console.log(total)
 }
