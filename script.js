@@ -8,12 +8,11 @@ function activarMesa(num) {
     sessionStorage.setItem(`Mesa${num}`, JSON.stringify([]));
   }
 
-  let mesa = document.querySelector(`#mesa${num}`);
-  mesa.style.backgroundImage = "url('./img/mesactiva.jpg')";
-
   let comanda = document.querySelector('.comanda');
+  console.log(comanda.innerHTML);
   let nodoDiv = document.createElement('div');
   let span = document.createElement('span');
+
   let info = document.createTextNode(`Mesa${num}`);
   comanda.appendChild(nodoDiv);
   nodoDiv.appendChild(span);
@@ -33,6 +32,8 @@ function comandarProducto(nombre, precio) {
   botonG.style.display = 'block';
   let botonM = document.querySelector('#btn_mod');
   botonM.style.display = 'block';
+  let botonP = document.querySelector('#btn_pag');
+  botonP.style.display = 'block';
 }
 function borrarProducto(prod) {
   prod.parentNode.removeChild(prod);
@@ -87,3 +88,20 @@ function cargarComanda() {
     sessionStorage.setItem(mesactiva, JSON.stringify([]));
   }
 }
+
+function cambiarCF() {
+  let mesas = document.querySelectorAll('.mesa');
+
+  mesas.forEach((mesa) => {
+    let mesactiva = sessionStorage.getItem('mesaActiva');
+
+    if (mesactiva.toLowerCase() == mesa.id) {
+      mesa.style.backgroundImage = "url('./img/mesactiva.jpg')";
+    } else {
+      mesa.style.backgroundImage = "url('./img/iconomesa.jpg')";
+    }
+  });
+}
+
+let img_mesa = document.querySelector('.contenedor_mesas');
+img_mesa.addEventListener('click', cambiarCF);
