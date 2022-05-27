@@ -202,6 +202,13 @@ body {
     height: 400px; 
     display: flex;
     background-color: white;
-    align-items:center;
-    margin-top: 50px;
+    margin-top: 200px;
+   
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
