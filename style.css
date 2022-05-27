@@ -1,7 +1,7 @@
 body {
     width: 100%;
     height: 100vh;
-    background-color: rgb(1, 1, 88);
+    background-color:#0020AC
 }
 
 .fondo_login{
@@ -48,7 +48,7 @@ body {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 5;
-    background-color: brown;
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -56,8 +56,17 @@ body {
 }
 
 .mesa{
-    background-color: aqua;
     
+    background-image: url('./img/iconomesa.jpg');
+    background-size: cover;
+    width: 80px; 
+    height: 80px; 
+    text-align: center;
+    align-items: center;
+
+    color: white;
+    font-size: small;
+    font-weight: bold;
     
 }
 .menu{
@@ -65,7 +74,7 @@ body {
     grid-column-end: 9;
     grid-row-start: 1;
     grid-row-end: 5;
-    background-color: brown;
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows:  1fr 1fr 1fr 1fr;
@@ -115,14 +124,14 @@ body {
 
 }
 .pescado,.carne,.bebida,.postre{
-    background-color: blueviolet;
+    background-color: white;
 }
 .comanda{
     grid-column-start: 5;
     grid-column-end: 7;
     grid-row-start: 1;
     grid-row-end: 4;
-    background-color: aqua;
+    color:white;
     display: flex;
 }
 .boton_pedir{
@@ -160,5 +169,29 @@ body {
     width: 100%;
     height: 1px;
     font-size:larger;
+}
+.boton{
+    background-color: black;
+    color:white;
+    display:block;
+    height: 30px;
+}
+#lista_comanda {
+    list-style: none; 
+    padding: 0; 
+    margin-left: 10px; 
+    }
+    
+#lista_comanda   li::before {
+    content: "\21D2"; 
+    padding-right: 8px; 
+    color: white; 
+    }
+.botones{
+    display: flex;
+    align-self: flex-end;
+}
+#btn_gua{
+  margin-right: 5px;
 }
 
