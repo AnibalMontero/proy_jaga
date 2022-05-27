@@ -46,6 +46,7 @@ nuevoContraseña = document.getElementById("newPassword").value
  localStorage.setItem("camareros", JSON.stringify(camareros))
  
 function registrar() {
+    
     nuevoUsuario = document.getElementById("newName").value
     nuevoContraseña = document.getElementById("newPassword").value
      camareroOcho = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
@@ -63,7 +64,8 @@ function registrar() {
        window.location.href = "otraPagina.html"; 
        var newUserSesion = sessionStorage.setItem(nuevoUsuario, JSON.stringify(camareroOcho))
 },  3000);
-
+    
+   
 
 }
 
