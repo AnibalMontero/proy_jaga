@@ -137,6 +137,12 @@ function pagar() {
   cargo.textContent = `${total} €`;
 }
 
+
+function salir() {
+    sessionStorage.clear
+    window.location.href = 'index.html';
+}
+
 //  var array_tiket = []
 // function cobrar() {
 //     var cocacola = 2
