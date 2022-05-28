@@ -43,6 +43,7 @@ camareros.push(camareroSiete);
 localStorage.setItem('camareros', JSON.stringify(camareros));
 
 function registrar() {
+
   nuevoUsuario = document.getElementById('newName').value;
   nuevoContraseña = document.getElementById('newPassword').value;
   camareroOcho = new nuevoEmpleado(nuevoUsuario, nuevoContraseña);
@@ -65,6 +66,7 @@ function registrar() {
       JSON.stringify(camareroOcho)
     );
   }, 3000);
+
 }
 
 function validar() {
