@@ -113,7 +113,9 @@ function leerST() {
 
 function pagar() {
   let mesactiva = sessionStorage.getItem('mesaActiva');
+  let camareroA = sessionStorage.getItem('camareroActivo');
   let arrayPedido = JSON.parse(sessionStorage.getItem(mesactiva));
+
   cargarComanda();
   let total = 0;
   arrayPedido.forEach((elem) => {
