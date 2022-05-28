@@ -54,11 +54,11 @@ function validar(){
      || (camareroOcho.name === nombreValido && camareroOcho.password === contraseñaValida)|| (camareroNueve.name === nombreValido && camareroNueve.password === contraseñaValida)
      || (camareroDiez.name === nombreValido && camareroDiez.password === contraseñaValida))){
          
-        window.location.href = "http://172.27.80.1:5500/TrabajoFinalFrontd/proyecto_jaga/otraPagina.html";
+        window.location.href = "otraPagina.html";
         
         for(i = 0; i < camareros.length; i++){
             if(camareros[i].name == nombreValido){
-                sessionStorage.setItem("camareroEnSesion" ,JSON.stringify(camareros[i]))
+                sessionStorage.setItem(camareros[i].name ,JSON.stringify(camareros[i]))
             }
         }
      }else{
