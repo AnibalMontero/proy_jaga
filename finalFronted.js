@@ -10,11 +10,18 @@ class nuevoEmpleado {
         this.nuevoContraseña = document.getElementById("newPassword").value
     }
 }
+class administrador{
+    constructor(newAdmin, adminPass){
+        this.newAdmin = newAdmin
+        this.adminPass = adminPass
+    }
+}
+
 
 nuevoUsuario = document.getElementById("newName").value
 nuevoContraseña = document.getElementById("newPassword").value
 
-camareroUno = new empleado("camarero1", "1234")
+ camareroUno = new empleado("camarero1", "1234")
  camareroDos = new empleado("camarero2", "2345")
  camareroTres = new empleado("camarero3", "3456")
  camareroCuatro = new empleado("camarero4", "4567")
@@ -24,7 +31,10 @@ camareroUno = new empleado("camarero1", "1234")
  camareroOcho = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
  camareroNueve = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
  camareroDiez = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
+ admin = new administrador("admin1", "1234")
+ 
 
+ 
  var camareros = []
  camareros.push(camareroUno)
  camareros.push(camareroDos)
@@ -33,16 +43,32 @@ camareroUno = new empleado("camarero1", "1234")
  camareros.push(camareroCinco)
  camareros.push(camareroSeis)
  camareros.push(camareroSiete)
+ localStorage.setItem("camareros", JSON.stringify(camareros))
  
 function registrar() {
+    
     nuevoUsuario = document.getElementById("newName").value
     nuevoContraseña = document.getElementById("newPassword").value
-    camareroOcho = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
-    camareroNueve = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
-    camareroDiez = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
+     camareroOcho = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
+     camareroNueve = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
+     camareroDiez = new nuevoEmpleado(nuevoUsuario, nuevoContraseña)
     
+    textRegistrationUser = document.getElementById("pNewUser").innerText = "Usuario Registrado"
+    textRegistrationPass = document.getElementById("pNewPass").innerText = "Contraseña Registrada"
+
+    setTimeout(function(){
+        RegisUser = document.getElementById("pNewUser").innerText = ""
+        RegisPass = document.getElementById("pNewPass").innerText = ""
+   },  2000);
+   setTimeout(function(){
+       window.location.href = "otraPagina.html"; 
+       var newUserSesion = sessionStorage.setItem(nuevoUsuario, JSON.stringify(camareroOcho))
+},  3000);
     
+   
+
 }
+
 function validar(){
      nombreValido = document.getElementById("nombre").value
      contraseñaValida = document.getElementById("contraseña").value
@@ -61,10 +87,28 @@ function validar(){
                 sessionStorage.setItem(camareros[i].name ,JSON.stringify(camareros[i]))
             }
         }
-     }else{
-         parrafo = document.getElementById("p1").innerText = "Usuario no valido"
-         parrafo2 = document.getElementById("p2").innerText = "contraseña incorrecta"
-    }
+     }else if(admin.newAdmin === nombreValido && admin.adminPass === contraseñaValida){
+        
+        sessionStorage.setItem("administrador" ,JSON.stringify(admin))
+        
+        window.location.href = "grafica.html";
+
+       
+
+        
+        }else{
+        parrafo = document.getElementById("pUser").innerText = "Usuario no valido"
+        parrafo2 = document.getElementById("pPass").innerText = "contraseña incorrecta"
+        setTimeout(function(){
+         parrafo = document.getElementById("pUser").innerText = ""
+         parrafo2 = document.getElementById("pPass").innerText = ""
+    },  2000);
+ }
 }
-console.log(camareros)
+
+
+
+        
+ 
+
 
