@@ -1,9 +1,32 @@
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     
 }
+.principal{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.pamesas{
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    
+}
+.pamenu{
+    justify-content: center;
+    margin-top: 20px;
+}
+.pacomanda{
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 20px;
+
+}
+
 
 .fondo_login{
     width: 100%;
@@ -16,10 +39,10 @@ body {
     width: 99%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr ;
     gap: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 .contenedor_mesas{
     grid-column-start: 1;
@@ -48,14 +71,14 @@ body {
     
 }
 .menu{
-    grid-column-start: 3;
-    grid-column-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 5;
     grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-end: 3;
     
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:  1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr ;
     gap: 5px;
 }
 .bebidas{
@@ -108,14 +131,14 @@ body {
     text-align: center;
 }
 .comanda{
-    grid-column-start: 5;
-    grid-column-end: 6;
+    /* grid-column-start: 6;
+    grid-column-end: 7;
     grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 4; */
     color:#0020AC;
-    display: flex;
+    /* display: flex; */
 }
-.boton_pedir{
+/* .boton_pedir{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 4;
@@ -141,8 +164,8 @@ body {
 .contenedor_mesas img{
     width: 100%;
    
-}
-.contenedor_mesas p{
+} */
+/* .contenedor_mesas p{
     margin-top: 3px;
     align-self: flex-start;
     display: flex;
@@ -150,7 +173,7 @@ body {
     width: 100%;
     height: 1px;
     font-size:larger;
-}
+} */
 .boton{
     background-color: #0020AC;
     color:white;
@@ -175,6 +198,13 @@ body {
     align-self: flex-end;
     
 }
+#nomeac{
+    display: none;
+    padding: 5px;
+    background-color: #0020AC;
+    color: white;
+    height: 30px;
+}
 #btn_gua{
     
   margin-right: 5px;
@@ -185,6 +215,30 @@ body {
 #btn_pag{
     margin-right: 5px;
   }
+#capacargo{
+    display: none;
+    background-color: #d83a39;
+    color: white;
+    font-size: 1.4em;
+    height: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 5px auto;
+    text-align: center;
+}
+#btn_salir, #turnoactual{
+    display: block;
+    width: 100%;
+    height: 80px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #0020AC;
+    color: white;
+    padding-top: 10px;
+    margin:10px;
+    border:none;
+}
+
 
 .contenedor_login{
     margin: 0;
@@ -251,11 +305,4 @@ body {
     background-color: white;
     margin-top: 200px;
    
-}
-
-.container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
 }
