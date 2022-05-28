@@ -125,12 +125,12 @@ function cobrar() {
         total += productos[i]
     }
 
-    array_tiket.push([mesa, productos, total])
+    array_tiket.push([total])
     for(let i=0; i<sessionStorage.length; i++) {
         let lala = sessionStorage.key(1);
         if(lala==camareroActivo){
 console.log(sessionStorage)
-          // sessionStorage.setItem(camareroActivo,JSON.stringify(array_tiket))        
+           sessionStorage.setItem(camareroActivo,JSON.stringify(array_tiket))        
           localStorage.setItem(camareroActivo,JSON.stringify(array_tiket))
         }
     }
