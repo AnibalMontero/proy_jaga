@@ -103,5 +103,6 @@ function cambiarCF() {
   });
 }
 
+
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
