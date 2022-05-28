@@ -9,7 +9,7 @@ function activarMesa(num) {
   }
 
   let comanda = document.querySelector('.comanda');
-  console.log(comanda.innerHTML);
+
   let nodoDiv = document.createElement('div');
   let span = document.createElement('span');
 
@@ -96,9 +96,9 @@ function cambiarCF() {
     let mesactiva = sessionStorage.getItem('mesaActiva');
 
     if (mesactiva.toLowerCase() == mesa.id) {
-      mesa.style.backgroundImage = "url('./img/mesactiva.jpg')";
+      mesa.style.backgroundImage = "url('./img/mesactiva.png')";
     } else {
-      mesa.style.backgroundImage = "url('./img/iconomesa.jpg')";
+      mesa.style.backgroundImage = "url('./img/iconomesa.png')";
     }
   });
 }
