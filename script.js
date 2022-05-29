@@ -1,5 +1,9 @@
 let arrayPedido = [];
 let mesactiva = '';
+let titulo = document.querySelector('#titulo');
+let camEnturno = sessionStorage.camareroActivo;
+camEnturno = camEnturno.substring(1, camEnturno.length - 1).toUpperCase();
+titulo.textContent = camEnturno;
 
 function activarMesa(num) {
   sessionStorage.setItem('mesaActiva', `Mesa${num}`);
@@ -95,15 +99,25 @@ function cambiarCF() {
       mesa.style.backgroundImage = "url('./img/iconomesa.png')";
     }
   });
+  leerST();
 }
 
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
 
 function leerST() {
+  let mesas = document.querySelectorAll('.mesa');
+  let idMesa = [];
+  mesas.forEach((elem) => {
+    idMesa.push(elem.id);
+  });
+
   for (let i = 0; i < sessionStorage.length; i++) {
     let key = sessionStorage.key(i);
-    if (sessionStorage.getItem(key) != '[]') {
+    if (
+      sessionStorage.getItem(key) != '[]' &&
+      idMesa.includes(key.toLowerCase())
+    ) {
       let ocupada = document.querySelector(`#${key.toLowerCase()}`);
       ocupada.style.backgroundImage = "url('./img/mesaocupada.png')";
     }
@@ -150,3 +164,4 @@ function salir() {
   sessionStorage.clear();
   window.location.href = 'index.html';
 }
+leerST();
