@@ -1,6 +1,9 @@
-
 let arrayPedido = [];
 let mesactiva = '';
+let titulo = document.querySelector('#titulo');
+let camEnturno = sessionStorage.camareroActivo;
+camEnturno = camEnturno.substring(1, camEnturno.length - 1).toUpperCase();
+titulo.textContent = camEnturno;
 
 function activarMesa(num) {
   sessionStorage.setItem('mesaActiva', `Mesa${num}`);
@@ -96,29 +99,36 @@ function cambiarCF() {
       mesa.style.backgroundImage = "url('./img/iconomesa.png')";
     }
   });
+  leerST();
 }
-
 
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
 
 
-
-function guardarLS() {
-  let camarero = sessionStorage.getItem('camareroActivo');
-}
 function leerST() {
+  let mesas = document.querySelectorAll('.mesa');
+  let idMesa = [];
+  mesas.forEach((elem) => {
+    idMesa.push(elem.id);
+  });
+
   for (let i = 0; i < sessionStorage.length; i++) {
     let key = sessionStorage.key(i);
-
-    console.log(`${key}: ${sessionStorage.getItem(key)}`);
+    if (
+      sessionStorage.getItem(key) != '[]' &&
+      idMesa.includes(key.toLowerCase())
+    ) {
+      let ocupada = document.querySelector(`#${key.toLowerCase()}`);
+      ocupada.style.backgroundImage = "url('./img/mesaocupada.png')";
+    }
   }
 
 }
 
 function pagar() {
   let mesactiva = sessionStorage.getItem('mesaActiva');
-  let camareroA = sessionStorage.getItem('camareroActivo');
+
   let arrayPedido = JSON.parse(sessionStorage.getItem(mesactiva));
 
   cargarComanda();
@@ -131,45 +141,29 @@ function pagar() {
   });
   let capacargo = document.querySelector('#capacargo');
   let cargo = document.querySelector('#total');
-
-  console.log(cargo);
   capacargo.style.display = 'block';
   cargo.textContent = `${total} €`;
+
+  let array = JSON.parse(sessionStorage.getItem('cajaDia'));
+  let obj = {};
+  obj[mesactiva] = total;
+  array.push(obj);
+
+  sessionStorage.setItem('cajaDia', JSON.stringify(array));
+  setTimeout(() => {
+    capacargo.style.display = 'none';
+    lista_comanda.textContent = '';
+    cargo.textContent = '';
+  }, 3000);
 }
-
-
 function salir() {
-    sessionStorage.clear
-    window.location.href = 'index.html';
+  let cajaDia = sessionStorage.getItem('cajaDia');
+
+  let camarero = sessionStorage.getItem('camareroActivo');
+  camarero = camarero.substring(1, camarero.length - 1);
+  localStorage.setItem([camarero], [cajaDia]);
+  sessionStorage.clear();
+  window.location.href = 'index.html';
 }
+leerST();
 
-//  var array_tiket = []
-// function cobrar() {
-//     var cocacola = 2
-//     var chuleton = 29
-//     var yogur = 1
-//     var mesa = "mesa2"
-   
-//     var camareroActivo=JSON.stringify(sessionStorage).split(",")[1].split('"')[1]
-    
-    
-//     //var dataLocalStorage = JSON.parse(localStorage.getItem(camareroActivo));
-//     var productos = [cocacola, chuleton, yogur, yogur]
-//     var total = 0
-//     for (let i = 0; i < productos.length; i++) {
-//         total += productos[i]
-//     }
-
-//     array_tiket.push([mesa, productos, total])
-//     for(let i=0; i<sessionStorage.length; i++) {
-//         let lala = sessionStorage.key(1);
-//         if(lala==camareroActivo){
-// console.log(sessionStorage)
-//           // sessionStorage.setItem(camareroActivo,JSON.stringify(array_tiket))        
-//           localStorage.setItem(camareroActivo,JSON.stringify(array_tiket))
-//         }
-//     }
-    
-// }
-
-//asd
