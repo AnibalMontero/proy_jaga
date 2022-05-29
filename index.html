@@ -4,45 +4,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
-    <link href="./styleIndex.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Spline+Sans+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styleIndex.css" rel="stylesheet" />
     <title>Proyecto</title>
   </head>
   <body>
+    <div class="contenedor_login">
+      <div class="contenedorAcces">
+        <label for="nombre">Usuario: </label>
+        <input type="text" id="nombre" placeholder="Usuario" required />
 
-       <div class="contenedor_login">
-          <div class="contenedorAcces">
-            <label for="nombre" >Usuario: </label>
-            <input type="text" id="nombre" placeholder="Usuario"   required />
-            
-            <p id="pUser"></p>
+        <p id="pUser"></p>
 
-            <label for="contraseña" >contraseña: </label>
-            <input type="text" id="contraseña" placeholder="Contraseña"  required />
-            
-            <p id="pPass"></p>
-          </div>
-          
-            <div class="contenedorRegistrar">
-              <label for="nombre" >Registrar un Nuevo Usuario </label>
-              <input type="text" id="newName" placeholder="Nuevo Usuario"   required />
-              
-              <p id="pNewUser"></p>
-              
-              <label for="contraseña" > Registrar Nueva Contraseña </label>
-              <input type="text" id="newPassword" placeholder="Nueva Contraseña"  required />
-              
-              <p id="pNewPass"></p>
-            </div>
+        <label for="contraseña">contraseña: </label>
+        <input type="text" id="contraseña" placeholder="Contraseña" required />
 
-            <div class="buttons">
-              <input type="button" value="Enviar" id="validar" onclick="validar();"/><br>
-              <input type="button" value="registrar" id="registrar" onclick="registrar();"/><br>
-            </div>
-            
+        <p id="pPass"></p>
       </div>
+
+      <div class="contenedorRegistrar">
+        <label for="nombre">Registrar un Nuevo Usuario </label>
+        <input type="text" id="newName" placeholder="Nuevo Usuario" required />
+
+        <p id="pNewUser"></p>
+
+        <label for="contraseña"> Registrar Nueva Contraseña </label>
+        <input
+          type="text"
+          id="newPassword"
+          placeholder="Nueva Contraseña"
+          required
+        />
+
+        <p id="pNewPass"></p>
+      </div>
+
+      <div class="buttons">
+        <input
+          type="button"
+          value="Enviar"
+          id="validar"
+          onclick="validar();"
+        /><br />
+        <input
+          type="button"
+          value="registrar"
+          id="registrar"
+          onclick="registrar();"
+        /><br />
+      </div>
+    </div>
     <script src="./finalFronted.js"></script>
   </body>
 </html>

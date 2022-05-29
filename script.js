@@ -100,20 +100,19 @@ function cambiarCF() {
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
 
-function guardarLS() {
-  let camarero = sessionStorage.getItem('camareroActivo');
-}
-function leerST() {
+function mesaOcupada() {
   for (let i = 0; i < sessionStorage.length; i++) {
     let key = sessionStorage.key(i);
-
-    console.log(`${key}: ${sessionStorage.getItem(key)}`);
+    if (sessionStorage.getItem(key) != '[]') {
+      let ocupada = document.querySelector(`#${key.toLowerCase()}`);
+      ocupada.style.backgroundImage = "url('./img/mesaocupada.png')";
+    }
   }
 }
 
 function pagar() {
   let mesactiva = sessionStorage.getItem('mesaActiva');
-  let camareroA = sessionStorage.getItem('camareroActivo');
+
   let arrayPedido = JSON.parse(sessionStorage.getItem(mesactiva));
 
   cargarComanda();
@@ -126,8 +125,83 @@ function pagar() {
   });
   let capacargo = document.querySelector('#capacargo');
   let cargo = document.querySelector('#total');
-
-  console.log(cargo);
   capacargo.style.display = 'block';
   cargo.textContent = `${total} €`;
+
+  let array = JSON.parse(sessionStorage.getItem('cajaDia'));
+  let obj = {};
+  obj[mesactiva] = total;
+  array.push(obj);
+
+  sessionStorage.setItem('cajaDia', JSON.stringify(array));
+  setTimeout(() => {
+    capacargo.style.display = 'none';
+    lista_comanda.textContent = '';
+    cargo.textContent = '';
+  }, 3000);
 }
+
+function salir() {
+  let cajaDia = sessionStorage.getItem('cajaDia');
+
+  let camarero = sessionStorage.getItem('camareroActivo');
+  camarero = camarero.substring(1, camarero.length - 1);
+  localStorage.setItem([camarero], [cajaDia]);
+  sessionStorage.clear();
+  window.location.href = 'index.html';
+}
+
+function vpaGrafica(camarero) {
+  let cam1 = JSON.parse(localStorage.getItem(camarero));
+  let valores = [];
+  cam1.forEach((elem) => {
+    let valor = Object.values(elem);
+    valores.push(Math.floor(valor[0]));
+  });
+  return valores;
+}
+
+function mpaGrafica(camarero) {
+  let mesas = JSON.parse(localStorage.getItem(camarero));
+  let claves = [];
+  mesas.forEach((elem) => {
+    let clave = Object.keys(elem);
+    claves.push(clave[0]);
+  });
+  return claves;
+}
+
+function leerlT() {
+  let camareros = JSON.parse(localStorage.getItem('camareros'));
+  nombreCamarero = [];
+  camareros.forEach((elem) => {
+    nombreCamarero.push(elem.name);
+  });
+
+  let claveslt = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (nombreCamarero.includes(key)) {
+      claveslt.push(key);
+    }
+  }
+
+  return claveslt;
+}
+
+function graficarDinero() {
+  const labels = leerlT();
+  labels.forEach((elem) => {
+    console.log(elem);
+    console.log(vpaGrafica(elem));
+  });
+}
+
+function graficarCmesa() {
+  const labels = leerlT();
+  labels.forEach((elem) => {
+    console.log(elem);
+    console.log(mpaGrafica(elem));
+  });
+}
+graficarCmesa();
