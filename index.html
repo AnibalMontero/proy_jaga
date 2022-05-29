@@ -11,42 +11,75 @@
     <title>Proyecto</title>
   </head>
   <body>
-    <div class="contenedor_contenedor_login">
-       <div class="contenedor_login">
-          <div class="contenedorAcces">
-            <label for="nombre" >Usuario: </label>
-            <input type="text" id="nombre" placeholder="nombre de usuario"   required />
-            
-            <p id="pUser"></p>
 
-            <label for="contraseña" >contraseña: </label>
-            <input type="text" id="contraseña" placeholder="Ingrese una contraseña"  required />
-            
-            <p id="pPass"></p>
-          </div>
-          
-            <div class="contenedorRegistrar">
-              <label for="nombre" >Registrar un Nuevo Usuario </label>
-              <input type="text" id="newName" placeholder="Nuevo Usuario"   required />
-              
-              <p id="pNewUser"></p>
-              
-              <label for="contraseña" > Registrar Nueva Contraseña </label>
-              <input type="text" id="newPassword" placeholder="Nueva Contraseña"  required />
-              
-              <p id="pNewPass"></p>
-            </div>
 
-            <div class="buttons">
-              <input type="button" value="Enviar" id="validar" onclick="validar();"/><br>
-              <input type="button" value="registrar" id="registrar" onclick="registrar();"/><br>
-            </div>
-            
+    <div id="turnoactual"><h1>RESTAURANTE JAGA</h1></div>
+
+    <div class="contenedor_login">
+      <div class="contenedorAcces">
+        <form>
+          <label for="nombre">Usuario: </label>
+          <input
+            type="text"
+            id="nombre"
+            placeholder="nombre de usuario"
+            required
+          />
+
+          <p id="pUser"></p>
+
+          <label for="contraseña">contraseña: </label>
+          <input
+            type="text"
+            id="contraseña"
+            placeholder="Ingrese una contraseña"
+            required
+          />
+
+
+          <p id="pPass"></p>
+        </form>
+
       </div>
     </div>
 
-    <script src="./finalFronted.js"></script>
+      <div class="contenedorRegistrar">
+        <form>
+        <label for="nombre">Registrar un Nuevo Usuario </label>
+        <input type="text" id="newName" placeholder="Nuevo Usuario" required />
 
+        <p id="pNewUser"></p>
+
+        <label for="contraseña"> Registrar Nueva Contraseña </label>
+        <input
+          type="text"
+          id="newPassword"
+          placeholder="Nueva Contraseña"
+          required
+        />
+
+        <p id="pNewPass"></p>
+      </div>
+
+      <p id="pPass"></p>
+    </form>
+      <div class="buttons">
+        <input
+          type="button"
+          value="Enviar"
+          id="validar"
+          onclick="validar();"
+        /><br />
+        <input
+          type="button"
+          value="registrar"
+          id="registrar"
+          onclick="registrar();"
+        /><br />
+      </div>
+    </div>
+    <footer></footer>
+    <script src="./finalFronted.js"></script>
 
   </body>
 </html>
