@@ -105,6 +105,7 @@ function cambiarCF() {
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
 
+
 function leerST() {
   let mesas = document.querySelectorAll('.mesa');
   let idMesa = [];
@@ -122,6 +123,7 @@ function leerST() {
       ocupada.style.backgroundImage = "url('./img/mesaocupada.png')";
     }
   }
+
 }
 
 function pagar() {
@@ -154,7 +156,6 @@ function pagar() {
     cargo.textContent = '';
   }, 3000);
 }
-
 function salir() {
   let cajaDia = sessionStorage.getItem('cajaDia');
 
@@ -165,3 +166,4 @@ function salir() {
   window.location.href = 'index.html';
 }
 leerST();
+
