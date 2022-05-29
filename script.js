@@ -100,7 +100,7 @@ function cambiarCF() {
 let img_mesa = document.querySelector('.contenedor_mesas');
 img_mesa.addEventListener('click', cambiarCF);
 
-function mesaOcupada() {
+function leerST() {
   for (let i = 0; i < sessionStorage.length; i++) {
     let key = sessionStorage.key(i);
     if (sessionStorage.getItem(key) != '[]') {
