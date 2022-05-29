@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    justify-content:space-between;
+    
+
+}
+.grafica{
+   margin: 20px;
+   width: 600px;
+}
