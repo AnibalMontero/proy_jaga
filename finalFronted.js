@@ -103,6 +103,7 @@ function validar() {
       if (camareros[i].name == nombreValido) {
         sessionStorage.setItem(camareros[i].name, JSON.stringify(camareros[i]));
         sessionStorage.setItem('camareroActivo', JSON.stringify(nombreValido));
+        sessionStorage.setItem('cajaDia', JSON.stringify([]));
       }
     }
   } else if (
