@@ -59,7 +59,7 @@ function registrar() {
     RegisPass = document.getElementById('pNewPass').innerText = '';
   }, 2000);
   setTimeout(function () {
-    window.location.href = 'otraPagina.html';
+    window.location.href = 'salon.html';
     var newUserSesion = sessionStorage.setItem(
       nuevoUsuario,
       JSON.stringify(camareroOcho)
