@@ -1,4 +1,3 @@
-
 class empleado {
   constructor(name, password) {
     this.name = name;
@@ -124,4 +123,3 @@ function validar() {
     }, 2000);
   }
 }
-
