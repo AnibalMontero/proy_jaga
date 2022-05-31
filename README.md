@@ -20,7 +20,7 @@ La aplicación se divide en 3 bloques.
 
 *Final
 
-Poco mas que añadir, la aplicación se ha hecho con mucho cariño y aunque falta cosas por pulir es funcional al 100%.
+Poco mas que añadir, la aplicación se ha hecho con mucho cariño y aunque faltan cosas por pulir es funcional al 100%.
 
 
 
